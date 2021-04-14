@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Client\PriceProductOfferVolume\Dependency\Service;
+namespace Spryker\Service\PriceProductOfferVolume\Dependency\Service;
 
 class PriceProductOfferVolumeToUtilEncodingServiceServiceBridge implements PriceProductOfferVolumeToUtilEncodingServiceInterface
 {
@@ -33,5 +33,19 @@ class PriceProductOfferVolumeToUtilEncodingServiceServiceBridge implements Price
     public function decodeJson($jsonValue, $assoc = false, $depth = null, $options = null)
     {
         return $this->utilEncodingService->decodeJson($jsonValue, $assoc, $depth, $options);
+    }
+
+    /**
+     * @phpstan-param array<mixed> $value
+     *
+     * @param array $value
+     * @param int|null $options
+     * @param int|null $depth
+     *
+     * @return string|null
+     */
+    public function encodeJson($value, $options = null, $depth = null)
+    {
+        return $this->utilEncodingService->encodeJson($value, $options, $depth);
     }
 }

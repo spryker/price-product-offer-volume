@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Client\PriceProductOfferVolume\Dependency\Service;
+namespace Spryker\Service\PriceProductOfferVolume\Dependency\Service;
 
 interface PriceProductOfferVolumeToUtilEncodingServiceInterface
 {
@@ -18,4 +18,15 @@ interface PriceProductOfferVolumeToUtilEncodingServiceInterface
      * @return mixed|null
      */
     public function decodeJson($jsonValue, $assoc = false, $depth = null, $options = null);
+
+    /**
+     * @phpstan-param array<mixed> $value
+     *
+     * @param array $value
+     * @param int|null $options
+     * @param int|null $depth
+     *
+     * @return string|null
+     */
+    public function encodeJson($value, $options = null, $depth = null);
 }

@@ -5,12 +5,18 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Client\PriceProductOfferVolume;
+namespace Spryker\Zed\PriceProductOfferVolume\Business;
 
-use Spryker\Client\Kernel\AbstractFactory;
 use Spryker\Service\PriceProductOfferVolume\PriceProductOfferVolumeServiceInterface;
+use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
+use Spryker\Zed\PriceProductOfferVolume\PriceProductOfferVolumeDependencyProvider;
 
-class PriceProductOfferVolumeFactory extends AbstractFactory
+/**
+ * @method \Spryker\Zed\PriceProductOfferVolume\PriceProductOfferVolumeConfig getConfig()
+ * @method \Spryker\Zed\PriceProductOfferVolume\Persistence\PriceProductOfferVolumeEntityManagerInterface getEntityManager()
+ * @method \Spryker\Zed\PriceProductOfferVolume\Persistence\PriceProductOfferVolumeRepositoryInterface getRepository()
+ */
+class PriceProductOfferVolumeBusinessFactory extends AbstractBusinessFactory
 {
     /**
      * @return \Spryker\Service\PriceProductOfferVolume\PriceProductOfferVolumeServiceInterface

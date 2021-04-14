@@ -5,23 +5,26 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Client\PriceProductOfferVolume;
+namespace Spryker\Zed\PriceProductOfferVolume;
 
-use Spryker\Client\Kernel\AbstractDependencyProvider;
-use Spryker\Client\Kernel\Container;
+use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
+use Spryker\Zed\Kernel\Container;
 
-class PriceProductOfferVolumeDependencyProvider extends AbstractDependencyProvider
+/**
+ * @method \Spryker\Zed\PriceProductOfferVolume\PriceProductOfferVolumeConfig getConfig()
+ */
+class PriceProductOfferVolumeDependencyProvider extends AbstractBundleDependencyProvider
 {
     public const SERVICE_PRICE_PRODUCT_OFFER_VOLUME = 'SERVICE_PRICE_PRODUCT_OFFER_VOLUME';
 
     /**
-     * @param \Spryker\Client\Kernel\Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return \Spryker\Client\Kernel\Container
+     * @return \Spryker\Zed\Kernel\Container
      */
-    public function provideServiceLayerDependencies(Container $container)
+    public function provideBusinessLayerDependencies(Container $container)
     {
-        $container = parent::provideServiceLayerDependencies($container);
+        $container = parent::provideBusinessLayerDependencies($container);
 
         $container = $this->addPriceProductOfferVolumeService($container);
 
@@ -29,9 +32,9 @@ class PriceProductOfferVolumeDependencyProvider extends AbstractDependencyProvid
     }
 
     /**
-     * @param \Spryker\Client\Kernel\Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return \Spryker\Client\Kernel\Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     protected function addPriceProductOfferVolumeService(Container $container): Container
     {

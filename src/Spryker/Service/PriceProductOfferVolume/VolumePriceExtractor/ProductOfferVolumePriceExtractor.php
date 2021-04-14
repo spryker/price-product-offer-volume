@@ -5,21 +5,21 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Client\PriceProductOfferVolume\VolumePriceExtractor;
+namespace Spryker\Service\PriceProductOfferVolume\VolumePriceExtractor;
 
 use Generated\Shared\Transfer\PriceProductTransfer;
-use Spryker\Client\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToUtilEncodingServiceInterface;
+use Spryker\Service\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToUtilEncodingServiceInterface;
 use Spryker\Shared\PriceProductOfferVolume\PriceProductOfferVolumeConfig;
 
 class ProductOfferVolumePriceExtractor implements ProductOfferVolumePriceExtractorInterface
 {
     /**
-     * @var \Spryker\Client\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToUtilEncodingServiceInterface
+     * @var \Spryker\Service\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToUtilEncodingServiceInterface
      */
     protected $utilEncodingService;
 
     /**
-     * @param \Spryker\Client\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToUtilEncodingServiceInterface $utilEncodingService
+     * @param \Spryker\Service\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToUtilEncodingServiceInterface $utilEncodingService
      */
     public function __construct(PriceProductOfferVolumeToUtilEncodingServiceInterface $utilEncodingService)
     {
@@ -50,11 +50,18 @@ class ProductOfferVolumePriceExtractor implements ProductOfferVolumePriceExtract
      */
     protected function extractPriceProductOfferVolumes(array $extractedPrices, PriceProductTransfer $priceProductTransfer): array
     {
-        if (!$priceProductTransfer->getMoneyValue()->getPriceData()) {
+        /** @var \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer */
+        $moneyValueTransfer = $priceProductTransfer->getMoneyValue();
+
+        if (!$moneyValueTransfer->getPriceData()) {
             return $extractedPrices;
         }
 
-        $priceData = $this->utilEncodingService->decodeJson($priceProductTransfer->getMoneyValue()->getPriceData(), true);
+        /** @var string $priceData */
+        $priceData = $moneyValueTransfer->getPriceData();
+
+        /** @var mixed[] $priceData */
+        $priceData = $this->utilEncodingService->decodeJson($priceData, true);
 
         if (!isset($priceData[PriceProductOfferVolumeConfig::VOLUME_PRICE_TYPE])) {
             return $extractedPrices;
@@ -71,6 +78,8 @@ class ProductOfferVolumePriceExtractor implements ProductOfferVolumePriceExtract
     }
 
     /**
+     * @phpstan-param array<mixed> $volumePriceData
+     *
      * @param array $volumePriceData
      * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      *
@@ -90,14 +99,19 @@ class ProductOfferVolumePriceExtractor implements ProductOfferVolumePriceExtract
                     $volumePriceData[PriceProductOfferVolumeConfig::VOLUME_PRICE_QUANTITY]
                 )
             )
-            ->setIsMergeable(false)
-            ->getMoneyValue()
+            ->setIsMergeable(false);
+
+        /** @var \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer */
+        $moneyValueTransfer = $priceProductTransfer->getMoneyValue();
+        $moneyValueTransfer
             ->setGrossAmount($volumePriceData[PriceProductOfferVolumeConfig::VOLUME_PRICE_GROSS_PRICE])
             ->setNetAmount($volumePriceData[PriceProductOfferVolumeConfig::VOLUME_PRICE_NET_PRICE])
-            ->setPriceData(json_encode([
-                PriceProductOfferVolumeConfig::VOLUME_PRICE_QUANTITY => $volumePriceData[PriceProductOfferVolumeConfig::VOLUME_PRICE_QUANTITY],
-            ]));
+            ->setPriceData(
+                $this->utilEncodingService->encodeJson([
+                    PriceProductOfferVolumeConfig::VOLUME_PRICE_QUANTITY => $volumePriceData[PriceProductOfferVolumeConfig::VOLUME_PRICE_QUANTITY],
+                ])
+            );
 
-        return $priceProductTransfer;
+        return $priceProductTransfer->setMoneyValue($moneyValueTransfer);
     }
 }
