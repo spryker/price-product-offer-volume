@@ -26,6 +26,7 @@ class VolumePriceHasBasePriceConstraintValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint): void
     {
         $priceProductOfferTransfer = $value;
+        // @phpstan-ignore instanceof.alwaysTrue
         if (!$priceProductOfferTransfer instanceof PriceProductOfferTransfer) {
             throw new UnexpectedTypeException($priceProductOfferTransfer, PriceProductOfferTransfer::class);
         }

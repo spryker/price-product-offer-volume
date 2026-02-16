@@ -28,6 +28,7 @@ class UniqueStoreCurrencyVolumeQuantityConstraintValidator extends ConstraintVal
      */
     public function validate($value, Constraint $constraint): void
     {
+        // @phpstan-ignore instanceof.alwaysTrue
         if (!$value instanceof PriceProductOfferTransfer) {
             throw new UnexpectedTypeException($value, PriceProductOfferTransfer::class);
         }
