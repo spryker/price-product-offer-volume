@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Business\PriceProductOfferVolume;
+namespace SprykerTest\Zed\PriceProductOfferVolume;
 
 use Codeception\Actor;
 use Generated\Shared\Transfer\MoneyValueTransfer;
