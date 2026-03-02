@@ -42,12 +42,6 @@ class PriceProductOfferVolumeValidator implements PriceProductOfferVolumeValidat
      */
     protected $priceProductOfferVolumeService;
 
-    /**
-     * @param \Spryker\Zed\PriceProductOfferVolume\Dependency\External\PriceProductOfferVolumeToValidationAdapterInterface $validationAdapter
-     * @param \Spryker\Zed\PriceProductOfferVolume\Business\Validator\PriceProductOfferConstraintProviderInterface $priceProductOfferConstraintProvider
-     * @param \Spryker\Zed\PriceProductOfferVolume\Business\Validator\PriceProductConstraintProviderInterface $priceProductConstraintProvider
-     * @param \Spryker\Service\PriceProductOfferVolume\PriceProductOfferVolumeServiceInterface $priceProductOfferVolumeService
-     */
     public function __construct(
         PriceProductOfferVolumeToValidationAdapterInterface $validationAdapter,
         PriceProductOfferConstraintProviderInterface $priceProductOfferConstraintProvider,
@@ -60,11 +54,6 @@ class PriceProductOfferVolumeValidator implements PriceProductOfferVolumeValidat
         $this->priceProductOfferVolumeService = $priceProductOfferVolumeService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     public function validate(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
     ): ValidationResponseTransfer {
@@ -144,14 +133,6 @@ class PriceProductOfferVolumeValidator implements PriceProductOfferVolumeValidat
         return $constraintViolationList;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $volumePriceProductTransfer
-     * @param int $priceProductOfferIndex
-     * @param int $priceProductIndex
-     * @param int $volumePriceIndex
-     *
-     * @return string
-     */
     protected function createViolationPath(
         PriceProductTransfer $volumePriceProductTransfer,
         int $priceProductOfferIndex,
@@ -178,12 +159,6 @@ class PriceProductOfferVolumeValidator implements PriceProductOfferVolumeValidat
         );
     }
 
-    /**
-     * @param \Symfony\Component\Validator\ConstraintViolationListInterface $constraintViolationList
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     protected function mapConstraintViolationListToValidationResponseTransfer(
         ConstraintViolationListInterface $constraintViolationList,
         ValidationResponseTransfer $validationResponseTransfer
@@ -200,12 +175,6 @@ class PriceProductOfferVolumeValidator implements PriceProductOfferVolumeValidat
         return $validationResponseTransfer;
     }
 
-    /**
-     * @param \Symfony\Component\Validator\ConstraintViolationInterface $constraintViolation
-     * @param \Generated\Shared\Transfer\ValidationErrorTransfer $validationErrorTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationErrorTransfer
-     */
     protected function mapConstraintViolationToValidationErrorTransfer(
         ConstraintViolationInterface $constraintViolation,
         ValidationErrorTransfer $validationErrorTransfer

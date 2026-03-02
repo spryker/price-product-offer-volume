@@ -49,9 +49,6 @@ class PriceProductOfferVolumeServiceTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testGetMinPriceProductsSuccessful(): void
     {
         // Arrange
@@ -81,9 +78,6 @@ class PriceProductOfferVolumeServiceTest extends Unit
         $this->assertSame($priceProductTransfer1, $minPriceProductTransfers[0]);
     }
 
-    /**
-     * @return void
-     */
     public function testGetMinPriceProductsWithPriceProductFilterQuantityEqualOne(): void
     {
         // Arrange
@@ -112,9 +106,6 @@ class PriceProductOfferVolumeServiceTest extends Unit
         $this->assertCount(0, $minPriceProductTransfers);
     }
 
-    /**
-     * @return void
-     */
     public function testGetMinPriceProductsIsSingleItemPrice(): void
     {
         // Arrange
@@ -143,9 +134,6 @@ class PriceProductOfferVolumeServiceTest extends Unit
         $this->assertSame($priceProductTransfer1, $minPriceProductTransfers[0]);
     }
 
-    /**
-     * @return void
-     */
     public function testExtractVolumePrices(): void
     {
         // Arrange

@@ -68,12 +68,6 @@ class ValidUniqueStoreCurrencyCollectionConstraintValidator extends ConstraintVa
         }
     }
 
-    /**
-     * @param int $priceProductOfferIndex
-     * @param int $priceProductIndex
-     *
-     * @return string
-     */
     protected function createViolationPath(
         int $priceProductOfferIndex,
         int $priceProductIndex
@@ -87,12 +81,6 @@ class ValidUniqueStoreCurrencyCollectionConstraintValidator extends ConstraintVa
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return string
-     */
     protected function createUniqueKey(
         MoneyValueTransfer $moneyValueTransfer,
         PriceProductTransfer $priceProductTransfer

@@ -35,25 +35,16 @@ class VolumePriceHasBasePriceConstraint extends SymfonyConstraint
         parent::__construct($options);
     }
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::MESSAGE;
     }
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToPriceProductVolumeInterface
-     */
     public function getPriceProductVolumeService(): PriceProductOfferVolumeToPriceProductVolumeInterface
     {
         return $this->priceProductVolumeService;

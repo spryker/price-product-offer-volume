@@ -28,9 +28,6 @@ class PriceProductOfferVolumeServiceTester extends Actor
 {
     use _generated\PriceProductOfferVolumeServiceTesterActions;
 
-    /**
-     * @return \Spryker\Service\PriceProductOfferVolume\PriceProductOfferVolumeServiceInterface
-     */
     public function getPriceProductOfferVolumeService(): PriceProductOfferVolumeServiceInterface
     {
         return $this->getLocator()->priceProductOfferVolume()->service();

@@ -40,9 +40,6 @@ class PriceProductOfferVolumeBusinessTester extends Actor
      */
     protected const PRICE_TYPE_DEFAULT = 'DEFAULT';
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer
-     */
     public function createValidPriceProductOfferCollection(): PriceProductOfferCollectionTransfer
     {
         $priceProductTransfer1 = (new PriceProductTransfer())

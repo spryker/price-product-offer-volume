@@ -18,19 +18,11 @@ class PriceProductOfferVolumeExpander implements PriceProductOfferVolumeExpander
      */
     protected $utilEncodingService;
 
-    /**
-     * @param \Spryker\Zed\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToUtilEncodingInterface $utilEncodingService
-     */
     public function __construct(PriceProductOfferVolumeToUtilEncodingInterface $utilEncodingService)
     {
         $this->utilEncodingService = $utilEncodingService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function expand(PriceProductTransfer $priceProductTransfer): PriceProductTransfer
     {
         $volumeQuantity = 1;
@@ -44,11 +36,6 @@ class PriceProductOfferVolumeExpander implements PriceProductOfferVolumeExpander
         return $priceProductTransfer->setVolumeQuantity($volumeQuantity);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return int|null
-     */
     protected function extractVolumeQuantity(PriceProductTransfer $priceProductTransfer): ?int
     {
         if ($priceProductTransfer->getMoneyValueOrFail()->getPriceData() === null) {

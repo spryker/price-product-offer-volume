@@ -31,17 +31,11 @@ use Symfony\Component\Validator\Constraint;
  */
 class PriceProductOfferVolumeBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\PriceProductOfferVolume\Business\Expander\PriceProductOfferVolumeExpanderInterface
-     */
     public function createPriceProductOfferVolumeExpander(): PriceProductOfferVolumeExpanderInterface
     {
         return new PriceProductOfferVolumeExpander($this->getUtilEncodingService());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductOfferVolume\Business\Validator\PriceProductOfferVolumeValidatorInterface
-     */
     public function createPriceProductOfferVolumeValidator(): PriceProductOfferVolumeValidatorInterface
     {
         return new PriceProductOfferVolumeValidator(
@@ -52,9 +46,6 @@ class PriceProductOfferVolumeBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductOfferVolume\Business\Validator\PriceProductOfferConstraintProviderInterface
-     */
     public function createPriceProductOfferConstraintProvider(): PriceProductOfferConstraintProviderInterface
     {
         return new PriceProductOfferConstraintProvider($this->createPriceProductOfferConstraints());
@@ -71,9 +62,6 @@ class PriceProductOfferVolumeBusinessFactory extends AbstractBusinessFactory
         ];
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductOfferVolume\Business\Validator\PriceProductConstraintProviderInterface
-     */
     public function createPriceProductConstraintProvider(): PriceProductConstraintProviderInterface
     {
         return new PriceProductConstraintProvider(
@@ -91,9 +79,6 @@ class PriceProductOfferVolumeBusinessFactory extends AbstractBusinessFactory
         ];
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     public function createUniqueStoreCurrencyVolumeQuantityConstraint(): Constraint
     {
         return new UniqueStoreCurrencyVolumeQuantityConstraint(
@@ -101,9 +86,6 @@ class PriceProductOfferVolumeBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     public function createVolumePriceHasBasePriceConstraint(): Constraint
     {
         return new VolumePriceHasBasePriceConstraint(
@@ -111,41 +93,26 @@ class PriceProductOfferVolumeBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     public function createValidGrossNetPriceConstraint(): Constraint
     {
         return new ValidGrossNetPriceConstraint();
     }
 
-    /**
-     * @return \Spryker\Service\PriceProductOfferVolume\PriceProductOfferVolumeServiceInterface
-     */
     public function getPriceProductOfferVolumeService(): PriceProductOfferVolumeServiceInterface
     {
         return $this->getProvidedDependency(PriceProductOfferVolumeDependencyProvider::SERVICE_PRICE_PRODUCT_OFFER_VOLUME);
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToUtilEncodingInterface
-     */
     public function getUtilEncodingService(): PriceProductOfferVolumeToUtilEncodingInterface
     {
         return $this->getProvidedDependency(PriceProductOfferVolumeDependencyProvider::SERVICE_UTIL_ENCODING);
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductOfferVolume\Dependency\External\PriceProductOfferVolumeToValidationAdapterInterface
-     */
     public function getValidationAdapter(): PriceProductOfferVolumeToValidationAdapterInterface
     {
         return $this->getProvidedDependency(PriceProductOfferVolumeDependencyProvider::ADAPTER_VALIDATION);
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToPriceProductVolumeInterface
-     */
     public function getPriceProductVolumeService(): PriceProductOfferVolumeToPriceProductVolumeInterface
     {
         return $this->getProvidedDependency(PriceProductOfferVolumeDependencyProvider::SERVICE_PRICE_PRODUCT_VOLUME);

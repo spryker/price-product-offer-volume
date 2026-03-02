@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\PriceProductTransfer;
 
 interface PriceProductOfferVolumeToPriceProductVolumeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
-     */
     public function hasVolumePrices(PriceProductTransfer $priceProductTransfer): bool;
 }

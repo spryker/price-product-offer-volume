@@ -35,25 +35,16 @@ class UniqueStoreCurrencyVolumeQuantityConstraint extends SymfonyConstraint
         parent::__construct($options);
     }
 
-    /**
-     * @return \Spryker\Service\PriceProductOfferVolume\PriceProductOfferVolumeServiceInterface
-     */
     public function getPriceProductOfferVolumeService(): PriceProductOfferVolumeServiceInterface
     {
         return $this->priceProductOfferVolumeService;
     }
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::MESSAGE;
     }
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;

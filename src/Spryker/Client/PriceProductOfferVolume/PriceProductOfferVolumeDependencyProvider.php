@@ -17,11 +17,6 @@ class PriceProductOfferVolumeDependencyProvider extends AbstractDependencyProvid
      */
     public const SERVICE_PRICE_PRODUCT_OFFER_VOLUME = 'SERVICE_PRICE_PRODUCT_OFFER_VOLUME';
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     public function provideServiceLayerDependencies(Container $container): Container
     {
         $container = parent::provideServiceLayerDependencies($container);
@@ -31,11 +26,6 @@ class PriceProductOfferVolumeDependencyProvider extends AbstractDependencyProvid
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addPriceProductOfferVolumeService(Container $container): Container
     {
         $container->set(static::SERVICE_PRICE_PRODUCT_OFFER_VOLUME, function (Container $container) {

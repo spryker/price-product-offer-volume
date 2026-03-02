@@ -18,9 +18,6 @@ class ProductOfferVolumePriceExtractor implements ProductOfferVolumePriceExtract
      */
     protected $utilEncodingService;
 
-    /**
-     * @param \Spryker\Service\PriceProductOfferVolume\Dependency\Service\PriceProductOfferVolumeToUtilEncodingServiceInterface $utilEncodingService
-     */
     public function __construct(PriceProductOfferVolumeToUtilEncodingServiceInterface $utilEncodingService)
     {
         $this->utilEncodingService = $utilEncodingService;

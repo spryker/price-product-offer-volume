@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\ValidationResponseTransfer;
 
 interface PriceProductOfferVolumeValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     public function validate(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
     ): ValidationResponseTransfer;

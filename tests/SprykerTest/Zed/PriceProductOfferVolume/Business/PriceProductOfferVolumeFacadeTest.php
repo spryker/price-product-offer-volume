@@ -65,9 +65,6 @@ class PriceProductOfferVolumeFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExtractVolumePrices(): void
     {
         // Arrange
@@ -94,9 +91,6 @@ class PriceProductOfferVolumeFacadeTest extends Unit
         $this->assertCount(2, $volumePrices);
     }
 
-    /**
-     * @return void
-     */
     public function testExpandPriceProductTransferExpandsWithOneIfPriceDataIsNotSet(): void
     {
         // Arrange
@@ -111,9 +105,6 @@ class PriceProductOfferVolumeFacadeTest extends Unit
         $this->assertSame(1, $priceProductTransferExpanded->getVolumeQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandPriceProductTransferExpandsWithCorrectDataIfPriceDataIsSet(): void
     {
         // Arrange
@@ -129,9 +120,6 @@ class PriceProductOfferVolumeFacadeTest extends Unit
         $this->assertSame(5, $priceProductTransferExpanded->getVolumeQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testValidatePriceProductOfferCollectionPassesValidation(): void
     {
         // Arrange
@@ -147,9 +135,6 @@ class PriceProductOfferVolumeFacadeTest extends Unit
         $this->assertTrue($validationResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testValidatePriceProductOfferCollectionViolatesValidGrossNetPriceConstraint(): void
     {
         // Arrange
@@ -174,9 +159,6 @@ class PriceProductOfferVolumeFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testValidatePriceProductOfferCollectionViolatesUniqueStoreCurrencyVolumeQuantityConstraint(): void
     {
         // Arrange
@@ -203,9 +185,6 @@ class PriceProductOfferVolumeFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testValidatePriceProductOfferCollectionViolatesVolumeQuantityConstraint(): void
     {
         // Arrange

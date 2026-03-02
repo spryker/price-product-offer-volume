@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\PriceProductTransfer;
 
 interface PriceProductOfferVolumeExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function expand(PriceProductTransfer $priceProductTransfer): PriceProductTransfer;
 }

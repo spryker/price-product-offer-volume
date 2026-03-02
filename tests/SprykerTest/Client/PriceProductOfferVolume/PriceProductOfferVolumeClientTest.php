@@ -25,9 +25,6 @@ class PriceProductOfferVolumeClientTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExtractProductPricesForProductOffer(): void
     {
         // Arrange

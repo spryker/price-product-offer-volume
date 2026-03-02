@@ -54,9 +54,6 @@ class PriceProductConstraintProvider implements PriceProductConstraintProviderIn
         );
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function getMoneyValueTransferConstraint(): SymfonyConstraint
     {
         return new TransferConstraint([
@@ -65,9 +62,6 @@ class PriceProductConstraintProvider implements PriceProductConstraintProviderIn
         ]);
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function getNetAmountConstraint(): SymfonyConstraint
     {
         return new GreaterThanOrEqual([
@@ -76,9 +70,6 @@ class PriceProductConstraintProvider implements PriceProductConstraintProviderIn
         ]);
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function getGrossAmountConstraint(): SymfonyConstraint
     {
         return new GreaterThanOrEqual([
@@ -87,9 +78,6 @@ class PriceProductConstraintProvider implements PriceProductConstraintProviderIn
         ]);
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function getVolumeQuantityConstraint(): SymfonyConstraint
     {
         return new GreaterThanOrEqual([

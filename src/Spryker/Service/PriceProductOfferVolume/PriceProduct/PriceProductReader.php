@@ -63,12 +63,6 @@ class PriceProductReader implements PriceProductReaderInterface
         return $minPriceProductTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $minPrice
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceToCompare
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function resolveLowestPrice(PriceProductTransfer $minPrice, PriceProductTransfer $priceToCompare): PriceProductTransfer
     {
         if ($minPrice->getVolumeQuantity() > $priceToCompare->getVolumeQuantity()) {
@@ -78,11 +72,6 @@ class PriceProductReader implements PriceProductReaderInterface
         return $priceToCompare;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
-     */
     protected function isSingleItemPrice(PriceProductTransfer $priceProductTransfer): bool
     {
         return $priceProductTransfer->getVolumeQuantity() === null;

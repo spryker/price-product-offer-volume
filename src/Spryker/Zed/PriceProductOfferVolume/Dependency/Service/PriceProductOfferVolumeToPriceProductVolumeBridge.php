@@ -24,11 +24,6 @@ class PriceProductOfferVolumeToPriceProductVolumeBridge implements PriceProductO
         $this->priceProductVolumeService = $priceProductVolumeService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
-     */
     public function hasVolumePrices(PriceProductTransfer $priceProductTransfer): bool
     {
         return $this->priceProductVolumeService->hasVolumePrices($priceProductTransfer);

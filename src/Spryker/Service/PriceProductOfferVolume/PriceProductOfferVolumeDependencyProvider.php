@@ -18,11 +18,6 @@ class PriceProductOfferVolumeDependencyProvider extends AbstractBundleDependency
      */
     public const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
 
-    /**
-     * @param \Spryker\Service\Kernel\Container $container
-     *
-     * @return \Spryker\Service\Kernel\Container
-     */
     public function provideServiceDependencies(Container $container): Container
     {
         $container = parent::provideServiceDependencies($container);
@@ -32,11 +27,6 @@ class PriceProductOfferVolumeDependencyProvider extends AbstractBundleDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Service\Kernel\Container $container
-     *
-     * @return \Spryker\Service\Kernel\Container
-     */
     protected function addUtilEncodingService(Container $container): Container
     {
         $container->set(static::SERVICE_UTIL_ENCODING, function (Container $container) {

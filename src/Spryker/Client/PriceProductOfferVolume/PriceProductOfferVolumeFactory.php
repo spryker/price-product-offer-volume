@@ -12,9 +12,6 @@ use Spryker\Service\PriceProductOfferVolume\PriceProductOfferVolumeServiceInterf
 
 class PriceProductOfferVolumeFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Service\PriceProductOfferVolume\PriceProductOfferVolumeServiceInterface
-     */
     public function getPriceProductOfferVolumeService(): PriceProductOfferVolumeServiceInterface
     {
         return $this->getProvidedDependency(PriceProductOfferVolumeDependencyProvider::SERVICE_PRICE_PRODUCT_OFFER_VOLUME);

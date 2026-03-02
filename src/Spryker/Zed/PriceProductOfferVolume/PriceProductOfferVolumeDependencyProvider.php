@@ -38,11 +38,6 @@ class PriceProductOfferVolumeDependencyProvider extends AbstractBundleDependency
      */
     public const ADAPTER_VALIDATION = 'ADAPTER_VALIDATION';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -55,11 +50,6 @@ class PriceProductOfferVolumeDependencyProvider extends AbstractBundleDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addPriceProductOfferVolumeService(Container $container): Container
     {
         $container->set(static::SERVICE_PRICE_PRODUCT_OFFER_VOLUME, function (Container $container) {
@@ -69,11 +59,6 @@ class PriceProductOfferVolumeDependencyProvider extends AbstractBundleDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addUtilEncodingService(Container $container): Container
     {
         $container->set(static::SERVICE_UTIL_ENCODING, function (Container $container) {
@@ -83,11 +68,6 @@ class PriceProductOfferVolumeDependencyProvider extends AbstractBundleDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addValidationAdapter(Container $container): Container
     {
         $container->set(static::ADAPTER_VALIDATION, function () {
@@ -97,11 +77,6 @@ class PriceProductOfferVolumeDependencyProvider extends AbstractBundleDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addPriceProductVolumeService(Container $container): Container
     {
         $container->set(static::SERVICE_PRICE_PRODUCT_VOLUME, function (Container $container) {
