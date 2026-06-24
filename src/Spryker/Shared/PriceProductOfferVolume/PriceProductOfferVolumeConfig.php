@@ -12,6 +12,8 @@ use Spryker\Shared\Kernel\AbstractSharedConfig;
 class PriceProductOfferVolumeConfig extends AbstractSharedConfig
 {
     /**
+     * @api
+     *
      * Specification:
      *  - Dimension type as used for product offer volume price.
      *
@@ -20,21 +22,29 @@ class PriceProductOfferVolumeConfig extends AbstractSharedConfig
     public const DIMENSION_TYPE_PRICE_PRODUCT_OFFER_VOLUME = 'PRICE_PRODUCT_OFFER_VOLUME';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const VOLUME_PRICE_TYPE = 'volume_prices';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const VOLUME_PRICE_QUANTITY = 'quantity';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const VOLUME_PRICE_NET_PRICE = 'net_price';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const VOLUME_PRICE_GROSS_PRICE = 'gross_price';
